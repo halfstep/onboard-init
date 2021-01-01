@@ -1,0 +1,39 @@
+enum RequestStatus {
+  PENDINGRESPONSE
+  PENDINGRETRIEVAL
+  COMPLETE
+}
+
+type DataResponse @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  DataRequest: DataRequest @connection
+  timestamp: AWSTimestamp!
+}
+
+type DataRequest @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  emailAddress: AWSEmail!
+  ownerEmailAddress: AWSEmail!
+  requestedData: [DataElement!] @connection(keyName: "byDataRequest", fields: ["id"])
+  createTimestamp: AWSTimestamp!
+  status: RequestStatus!
+}
+
+type DataElement @model @auth(rules: [{allow: public}]) @key(name: "byDataRequest", fields: ["datarequestID"]) {
+  id: ID!
+  key: String!
+  label: String!
+  dataValue: String
+  DataType: DataType @connection
+  datarequestID: ID!
+}
+
+type DataType @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  key: String!
+  version: String!
+  validation: String
+}
+ 
