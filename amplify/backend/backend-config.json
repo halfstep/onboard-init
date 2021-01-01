@@ -20,5 +20,13 @@
         }
       }
     }
+  },
+  "auth": {
+    "onboard": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
   }
 }
