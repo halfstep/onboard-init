@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
+    <title>Mutation</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
+</head>
+<body class="slds-scrollable--y">
+    <nav class="slds-grid slds-grid--vertical slds-col--rule-right">
+        <header class="slds-p-around--medium slds-col slds-shrik slds-grow-none">
+            <button class="slds-button slds-button--icon slds-float--right js-toggle-navigation less-than-medium">
+                <i class="material-icons">close</i>
+            </button>
+                <h3 class="slds-text-heading--medium"><a href="./">GraphQL Schema</a></h3>
+            <div class="slds-p-top--small">
+                <input id="type-search" type="text" placeholder="Search a type" autofocus="" class="slds-input" />
+            </div>
+        </header>
+        <div id="navication-scroll" class="slds-scrollable--y slds-col slds-grow">
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Schema</h4>
+    <ul>
+        <li  title="Query">
+            <a href="query.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Query
+            </a>
+        </li>
+        <li class="slds-is-active" title="Mutation">
+            <a href="mutation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Mutation
+            </a>
+        </li>
+        <li  title="Subscription">
+            <a href="subscription.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Subscription
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Scalars</h4>
+    <ul>
+        <li  title="AWSDateTime">
+            <a href="awsdatetime.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AWSDateTime
+            </a>
+        </li>
+        <li  title="AWSEmail">
+            <a href="awsemail.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AWSEmail
+            </a>
+        </li>
+        <li  title="AWSTimestamp">
+            <a href="awstimestamp.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                AWSTimestamp
+            </a>
+        </li>
+        <li  title="Boolean">
+            <a href="boolean.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Boolean
+            </a>
+        </li>
+        <li  title="Float">
+            <a href="float.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Float
+            </a>
+        </li>
+        <li  title="ID">
+            <a href="id.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ID
+            </a>
+        </li>
+        <li  title="Int">
+            <a href="int.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Int
+            </a>
+        </li>
+        <li  title="String">
+            <a href="string.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                String
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Enums</h4>
+    <ul>
+        <li  title="ModelAttributeTypes">
+            <a href="modelattributetypes.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelAttributeTypes
+            </a>
+        </li>
+        <li  title="ModelSortDirection">
+            <a href="modelsortdirection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelSortDirection
+            </a>
+        </li>
+        <li  title="RequestStatus">
+            <a href="requeststatus.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RequestStatus
+            </a>
+        </li>
+        <li  title="__DirectiveLocation">
+            <a href="directivelocation.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __DirectiveLocation
+            </a>
+        </li>
+        <li  title="__TypeKind">
+            <a href="typekind.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __TypeKind
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
+    <ul>
+        <li  title="DataElement">
+            <a href="dataelement.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DataElement
+            </a>
+        </li>
+        <li  title="DataRequest">
+            <a href="datarequest.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DataRequest
+            </a>
+        </li>
+        <li  title="DataResponse">
+            <a href="dataresponse.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DataResponse
+            </a>
+        </li>
+        <li  title="DataType">
+            <a href="datatype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DataType
+            </a>
+        </li>
+        <li  title="ModelDataElementConnection">
+            <a href="modeldataelementconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataElementConnection
+            </a>
+        </li>
+        <li  title="ModelDataRequestConnection">
+            <a href="modeldatarequestconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataRequestConnection
+            </a>
+        </li>
+        <li  title="ModelDataResponseConnection">
+            <a href="modeldataresponseconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataResponseConnection
+            </a>
+        </li>
+        <li  title="ModelDataTypeConnection">
+            <a href="modeldatatypeconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataTypeConnection
+            </a>
+        </li>
+        <li  title="__Directive">
+            <a href="directive.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Directive
+            </a>
+        </li>
+        <li  title="__EnumValue">
+            <a href="enumvalue.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __EnumValue
+            </a>
+        </li>
+        <li  title="__Field">
+            <a href="field.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Field
+            </a>
+        </li>
+        <li  title="__InputValue">
+            <a href="inputvalue.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __InputValue
+            </a>
+        </li>
+        <li  title="__Schema">
+            <a href="schema.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Schema
+            </a>
+        </li>
+        <li  title="__Type">
+            <a href="type.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Type
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Input Objects</h4>
+    <ul>
+        <li  title="CreateDataElementInput">
+            <a href="createdataelementinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CreateDataElementInput
+            </a>
+        </li>
+        <li  title="CreateDataRequestInput">
+            <a href="createdatarequestinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CreateDataRequestInput
+            </a>
+        </li>
+        <li  title="CreateDataResponseInput">
+            <a href="createdataresponseinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CreateDataResponseInput
+            </a>
+        </li>
+        <li  title="CreateDataTypeInput">
+            <a href="createdatatypeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CreateDataTypeInput
+            </a>
+        </li>
+        <li  title="DeleteDataElementInput">
+            <a href="deletedataelementinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DeleteDataElementInput
+            </a>
+        </li>
+        <li  title="DeleteDataRequestInput">
+            <a href="deletedatarequestinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DeleteDataRequestInput
+            </a>
+        </li>
+        <li  title="DeleteDataResponseInput">
+            <a href="deletedataresponseinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DeleteDataResponseInput
+            </a>
+        </li>
+        <li  title="DeleteDataTypeInput">
+            <a href="deletedatatypeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DeleteDataTypeInput
+            </a>
+        </li>
+        <li  title="ModelBooleanInput">
+            <a href="modelbooleaninput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelBooleanInput
+            </a>
+        </li>
+        <li  title="ModelDataElementConditionInput">
+            <a href="modeldataelementconditioninput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataElementConditionInput
+            </a>
+        </li>
+        <li  title="ModelDataElementFilterInput">
+            <a href="modeldataelementfilterinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataElementFilterInput
+            </a>
+        </li>
+        <li  title="ModelDataRequestConditionInput">
+            <a href="modeldatarequestconditioninput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataRequestConditionInput
+            </a>
+        </li>
+        <li  title="ModelDataRequestFilterInput">
+            <a href="modeldatarequestfilterinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataRequestFilterInput
+            </a>
+        </li>
+        <li  title="ModelDataResponseConditionInput">
+            <a href="modeldataresponseconditioninput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataResponseConditionInput
+            </a>
+        </li>
+        <li  title="ModelDataResponseFilterInput">
+            <a href="modeldataresponsefilterinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataResponseFilterInput
+            </a>
+        </li>
+        <li  title="ModelDataTypeConditionInput">
+            <a href="modeldatatypeconditioninput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataTypeConditionInput
+            </a>
+        </li>
+        <li  title="ModelDataTypeFilterInput">
+            <a href="modeldatatypefilterinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelDataTypeFilterInput
+            </a>
+        </li>
+        <li  title="ModelFloatInput">
+            <a href="modelfloatinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelFloatInput
+            </a>
+        </li>
+        <li  title="ModelIDInput">
+            <a href="modelidinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelIDInput
+            </a>
+        </li>
+        <li  title="ModelIntInput">
+            <a href="modelintinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelIntInput
+            </a>
+        </li>
+        <li  title="ModelRequestStatusInput">
+            <a href="modelrequeststatusinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelRequestStatusInput
+            </a>
+        </li>
+        <li  title="ModelSizeInput">
+            <a href="modelsizeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelSizeInput
+            </a>
+        </li>
+        <li  title="ModelStringInput">
+            <a href="modelstringinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ModelStringInput
+            </a>
+        </li>
+        <li  title="UpdateDataElementInput">
+            <a href="updatedataelementinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UpdateDataElementInput
+            </a>
+        </li>
+        <li  title="UpdateDataRequestInput">
+            <a href="updatedatarequestinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UpdateDataRequestInput
+            </a>
+        </li>
+        <li  title="UpdateDataResponseInput">
+            <a href="updatedataresponseinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UpdateDataResponseInput
+            </a>
+        </li>
+        <li  title="UpdateDataTypeInput">
+            <a href="updatedatatypeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UpdateDataTypeInput
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Directives</h4>
+    <ul>
+        <li  title="aws_api_key">
+            <a href="aws_api_key.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                aws_api_key
+            </a>
+        </li>
+        <li  title="aws_auth">
+            <a href="aws_auth.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                aws_auth
+            </a>
+        </li>
+        <li  title="aws_cognito_user_pools">
+            <a href="aws_cognito_user_pools.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                aws_cognito_user_pools
+            </a>
+        </li>
+        <li  title="aws_iam">
+            <a href="aws_iam.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                aws_iam
+            </a>
+        </li>
+        <li  title="aws_oidc">
+            <a href="aws_oidc.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                aws_oidc
+            </a>
+        </li>
+        <li  title="aws_publish">
+            <a href="aws_publish.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                aws_publish
+            </a>
+        </li>
+        <li  title="aws_subscribe">
+            <a href="aws_subscribe.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                aws_subscribe
+            </a>
+        </li>
+        <li  title="defer">
+            <a href="defer.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                defer
+            </a>
+        </li>
+        <li  title="deprecated">
+            <a href="deprecated.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                deprecated
+            </a>
+        </li>
+        <li  title="include">
+            <a href="include.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                include
+            </a>
+        </li>
+        <li  title="skip">
+            <a href="skip.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                skip
+            </a>
+        </li>
+    </ul>
+</div>
+        </div>
+    </nav>
+    <main><section class="title slds-theme--inverse">
+    <div class="container slds-grid">
+        <div>
+        <button class="slds-button js-toggle-navigation less-than-medium">
+            <i class="material-icons slds-button__icon slds-button__icon--left">menu</i>
+            <span class="slds-text-title--caps">Types<span>
+        </button>
+        </div>
+        </div>
+    </div>
+    <div class="container">
+        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
+        <h1 class="slds-text-heading--large">Mutation</h1>
+        <div class="slds-text-body--regular"></div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <h2 id="graphql-schema-definition" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#graphql-schema-definition">
+                <i class="material-icons">link</i>
+            </a>
+            GraphQL Schema definition
+        </h2>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Mutation</span> {</li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">createDataResponse</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="createdataresponseinput.doc.html">CreateDataResponseInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldataresponseconditioninput.doc.html">ModelDataResponseConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="dataresponse.doc.html">DataResponse</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">updateDataResponse</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="updatedataresponseinput.doc.html">UpdateDataResponseInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldataresponseconditioninput.doc.html">ModelDataResponseConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="dataresponse.doc.html">DataResponse</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">deleteDataResponse</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="deletedataresponseinput.doc.html">DeleteDataResponseInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldataresponseconditioninput.doc.html">ModelDataResponseConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="dataresponse.doc.html">DataResponse</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">createDataRequest</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="createdatarequestinput.doc.html">CreateDataRequestInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldatarequestconditioninput.doc.html">ModelDataRequestConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="datarequest.doc.html">DataRequest</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">updateDataRequest</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="updatedatarequestinput.doc.html">UpdateDataRequestInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldatarequestconditioninput.doc.html">ModelDataRequestConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="datarequest.doc.html">DataRequest</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">deleteDataRequest</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="deletedatarequestinput.doc.html">DeleteDataRequestInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldatarequestconditioninput.doc.html">ModelDataRequestConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="datarequest.doc.html">DataRequest</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">createDataElement</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="createdataelementinput.doc.html">CreateDataElementInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldataelementconditioninput.doc.html">ModelDataElementConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="dataelement.doc.html">DataElement</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">updateDataElement</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="updatedataelementinput.doc.html">UpdateDataElementInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldataelementconditioninput.doc.html">ModelDataElementConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="dataelement.doc.html">DataElement</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">deleteDataElement</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="deletedataelementinput.doc.html">DeleteDataElementInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldataelementconditioninput.doc.html">ModelDataElementConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="dataelement.doc.html">DataElement</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">createDataType</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="createdatatypeinput.doc.html">CreateDataTypeInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldatatypeconditioninput.doc.html">ModelDataTypeConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="datatype.doc.html">DataType</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">updateDataType</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="updatedatatypeinput.doc.html">UpdateDataTypeInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldatatypeconditioninput.doc.html">ModelDataTypeConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="datatype.doc.html">DataType</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>condition</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">deleteDataType</span>(</span></li><li><span class="tab"><span class="tab"><span class="meta">input</span>: <a class="support type" href="deletedatatypeinput.doc.html">DeleteDataTypeInput</a>!,</span></span></li><li><span class="tab"><span class="tab"><span class="meta">condition</span>: <a class="support type" href="modeldatatypeconditioninput.doc.html">ModelDataTypeConditionInput</a></span></span></li><li><span class="tab">): <a class="support type" href="datatype.doc.html">DataType</a> </span></li><li>}</li></ul></code>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <h2 id="require-by" class="graphdoc-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#require-by">
+                <i class="material-icons">link</i>
+            </a>
+            Require by
+        </h2>
+        <div class="require-by anyone">This element is not required by anyone</div>
+    </div>
+</section>
+<footer>
+<div class="container slds-p-around--large">
+    <p class="slds-text-align--right slds-text-title--caps">
+        Generated with <a href="https://github.com/2fd/graphdoc#readme" target="_blank">graphdoc 2.4.0</a>
+    </p>
+</div>
+</footer>
+</main>
+    <script src="./scripts/focus-active.js"></script>
+    <script src="./scripts/filter-types.js"></script>
+    <script src="./scripts/toggle-navigation.js"></script>
+</body>
