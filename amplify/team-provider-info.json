@@ -10,6 +10,11 @@
       "StackName": "amplify-onboard-dev-103706",
       "StackId": "arn:aws:cloudformation:us-east-1:016424107085:stack/amplify-onboard-dev-103706/4d091100-4606-11eb-a614-0a802f5ec5bb",
       "AmplifyAppId": "drxjvwc7jo3y8"
+    },
+    "categories": {
+      "auth": {
+        "onboard": {}
+      }
     }
   }
 }

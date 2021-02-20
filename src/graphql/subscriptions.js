@@ -166,6 +166,7 @@ export const onCreateDataElement = /* GraphQL */ `
         key
         version
         validation
+        label
         _version
         _deleted
         _lastChangedAt
@@ -193,6 +194,7 @@ export const onUpdateDataElement = /* GraphQL */ `
         key
         version
         validation
+        label
         _version
         _deleted
         _lastChangedAt
@@ -220,6 +222,7 @@ export const onDeleteDataElement = /* GraphQL */ `
         key
         version
         validation
+        label
         _version
         _deleted
         _lastChangedAt
@@ -236,6 +239,7 @@ export const onCreateDataType = /* GraphQL */ `
       key
       version
       validation
+      label
       _version
       _deleted
       _lastChangedAt
@@ -251,6 +255,7 @@ export const onUpdateDataType = /* GraphQL */ `
       key
       version
       validation
+      label
       _version
       _deleted
       _lastChangedAt
@@ -266,6 +271,7 @@ export const onDeleteDataType = /* GraphQL */ `
       key
       version
       validation
+      label
       _version
       _deleted
       _lastChangedAt

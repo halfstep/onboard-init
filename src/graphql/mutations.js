@@ -141,7 +141,7 @@ export const updateDataRequest = /* GraphQL */ `
     }
   }
 `;
-export const deleteDataRequest = /* GraphQL */ `
+export const deleteDataRequestDup = /* GraphQL */ `
   mutation DeleteDataRequest(
     $input: DeleteDataRequestInput!
     $condition: ModelDataRequestConditionInput
@@ -187,6 +187,7 @@ export const createDataElement = /* GraphQL */ `
         key
         version
         validation
+        label
         _version
         _deleted
         _lastChangedAt
@@ -217,6 +218,7 @@ export const updateDataElement = /* GraphQL */ `
         key
         version
         validation
+        label
         _version
         _deleted
         _lastChangedAt
@@ -247,6 +249,7 @@ export const deleteDataElement = /* GraphQL */ `
         key
         version
         validation
+        label
         _version
         _deleted
         _lastChangedAt
@@ -266,6 +269,7 @@ export const createDataType = /* GraphQL */ `
       key
       version
       validation
+      label
       _version
       _deleted
       _lastChangedAt
@@ -284,6 +288,7 @@ export const updateDataType = /* GraphQL */ `
       key
       version
       validation
+      label
       _version
       _deleted
       _lastChangedAt
@@ -302,6 +307,7 @@ export const deleteDataType = /* GraphQL */ `
       key
       version
       validation
+      label
       _version
       _deleted
       _lastChangedAt

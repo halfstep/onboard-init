@@ -17,7 +17,8 @@ import Navbar from './components/Navbar';
 import Home from './components/pages/Home';
 import ListRequests from './components/pages/ListRequests';
 import CreateRequest from './components/pages/CreateRequest';
-import {BrowserRouter as Router,Switch, Route} from 'react-router-dom';
+import GetRequest from './components/pages/GetRequest';
+import {BrowserRouter as Router,Switch, Route, useParams} from 'react-router-dom';
 
 Amplify.configure(awsconfig);
 
@@ -46,6 +47,7 @@ function App() {
         <Route path='/' exact component={Home} />
         <Route path='/createRequest' exact component={CreateRequest} />
         <Route path='/listRequests' exact component={ListRequests} />
+        <Route path='/getRequest/:id' exact component={GetRequest} />
       </Switch>
     </Router>    
     </>  

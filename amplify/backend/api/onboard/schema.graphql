@@ -35,5 +35,6 @@ type DataType @model @auth(rules: [{allow: public}]) {
   key: String!
   version: String!
   validation: String
+  label: String
 }
  

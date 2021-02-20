@@ -174,6 +174,7 @@ export const getDataElement = /* GraphQL */ `
         key
         version
         validation
+        label
         _version
         _deleted
         _lastChangedAt
@@ -249,6 +250,7 @@ export const listDataTypes = /* GraphQL */ `
         key
         version
         validation
+        label
         _version
         _deleted
         _lastChangedAt
@@ -267,6 +269,7 @@ export const getDataType = /* GraphQL */ `
       key
       version
       validation
+      label
       _version
       _deleted
       _lastChangedAt
@@ -293,6 +296,7 @@ export const syncDataTypes = /* GraphQL */ `
         key
         version
         validation
+        label
         _version
         _deleted
         _lastChangedAt

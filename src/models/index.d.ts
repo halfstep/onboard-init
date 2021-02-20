@@ -45,6 +45,7 @@ export declare class DataType {
   readonly key: string;
   readonly version: string;
   readonly validation?: string;
+  readonly label?: string;
   constructor(init: ModelInit<DataType>);
   static copyOf(source: DataType, mutator: (draft: MutableModel<DataType>) => MutableModel<DataType> | void): DataType;
 }

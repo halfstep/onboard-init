@@ -1,58 +1,115 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect, Fragment } from 'react';
 import '../../App.css';
 import PropTypes from 'prop-types';
-import { listDataTypes } from '../../graphql/queries';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
 import validator from 'validator';
 
-import NativeSelect from '@material-ui/core/NativeSelect';
-
-import Amplify, {API, graphqlOperation} from 'aws-amplify';
-//import CreateDataRequest from './CreateDataRequest';
+import Amplify, {API, graphqlOperation, Auth} from 'aws-amplify';
+import { listDataTypes, listDataRequests } from '../../graphql/queries';
+import { createDataRequest, createDataElement } from '../../graphql/mutations';
 
 function CreateRequest() {
-    const [state, setState] = React.useState({
-        dataType: '',
-        dataLabel: '',
+    const [state, setState] = React.useState({                
         firstName: '',
         lastName: '',
         emailAddress: '',
         ownerEmailAddress: '',        
-        requestedData: []
+        requestedData: [{
+            dataType: '',
+            dataLabel: '',
+        }]
       });
     
-      const [dataTypes, setDataTypes] = React.useState([]);
-    
-      const handleChange = (event) => {
-        const name = event.target.name;
+    const [dataTypes, setDataTypes] = React.useState([]);
+
+    const handleChange = (event) => {
+    const name = event.target.name;
+    setState({
+        ...state,
+        [name]: event.target.value,
+    });
+    };
+
+    const handleNestedChange = (event) => {
+        const id = event.target.id;        
+        const split = id.split("-");
+        const idx = split[1];
+        const field = split[0];        
+        const requestedData = state.requestedData;      
+        const element = requestedData[idx];
+        element[field] = event.target.value;       
         setState({
-          ...state,
-          [name]: event.target.value,
-        });
-      };
+            ...state,
+            "requestedData": requestedData 
+        })
+    };
+
     useEffect(() => {
         fetchDataTypes();
       }, [])
     
     const fetchDataTypes = async () => {
-        try {
+        try {            
             const dataTypeData = await API.graphql(graphqlOperation(listDataTypes));
             const dataTypeList = dataTypeData.data.listDataTypes.items;
             console.log('datatype list', dataTypeList);
             setDataTypes(dataTypeList);
         } catch (error) {
-            console.log('error on fetching songs', error);
+            console.log('error on fetching dataTypes', error);
         }
+    };
+
+    const submitDataElement = async(element) => {              
+        const newDataElement = await API.graphql(graphqlOperation(createDataElement, {input: element}));   
+    }
+
+    const submitCreateDataRequest = async() => {
+        console.log('create new data request');
+        try {
+            const requestDetails = {
+                firstName: state.firstName,
+                lastName: state.lastName,
+                emailAddress: state.emailAddress,
+                ownerEmailAddress: Auth.user.attributes.email,
+                createTimestamp: Math.floor(Date.now() / 1000),
+                status: 'PENDINGRESPONSE',               
+              };              
+            const newDataRequest = await API.graphql(graphqlOperation(createDataRequest, {input: requestDetails}));   
+            const elements = [];
+            state.requestedData.map(element => {
+                const elementDetails = {
+                    label: element.dataLabel,
+                    key: dataTypes.find(item => {return item.id == element.dataType}).key,
+                    datarequestID: newDataRequest.data.createDataRequest.id,
+                    dataElementDataTypeId: element.dataType
+                };  
+                elements.push(elementDetails);           
+            });    
+            console.log(elements);            
+            elements.forEach(submitDataElement);
+        } catch (error) {
+            console.log('error on creating request', error);
+        }
+    };
+
+    const addDataElement = (event) => {
+        var dataElements = state.requestedData;
+        dataElements.push({
+            dataType: '',
+            dataLabel: '',
+        });
+        setState({
+            ...state,
+            "requestedData": dataElements 
+        })
     };
 
     const validateEmail = (e) => { 
@@ -96,35 +153,43 @@ function CreateRequest() {
                     </Grid>
                     <Divider className='divider' />
                     <Grid item xs={12}>
-                        <Button variant="contained" color="secondary">Add Data Element</Button>
+                        <Button variant="contained" color="secondary" onClick={addDataElement}>Add Data Element</Button>
                     </Grid>
-                    <Grid item xs={4}>
-                        <FormControl required className="dataTypeForm" variant="outlined">  
-                            <InputLabel htmlFor="dataType-native-simple">Data Type</InputLabel>
-                            <Select native value={state.dataType} onChange={handleChange} inputProps={{
-                                name: 'dataType',
-                                id: 'dataType-native-simple',
-                                }}
-                            >
-                                <option aria-label="None" value="" />
-                                { dataTypes.map(item => {
-                                    return (
-                                        <option value={item.id}>{item.key} - {item.version}</option>
-                                    )
-                                })}
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                    <Grid item xs={8}>
-                        <FormControl className="dataLabel">                            
-                            <TextField required label="Data Label" variant="outlined" native value={state.dataLabel} onChange={handleChange} inputProps={{
-                                name: 'dataLabel',
-                                id: 'dataLabel-native-simple'
-                            }}/>
-                        </FormControl>
-                    </Grid>
+                {
+                    state.requestedData.map(function(element, index) {
+                        return (
+                            <Fragment>                                
+                                <Grid item xs={4}>
+                                    <FormControl required className="dataTypeForm" variant="outlined">  
+                                        <InputLabel htmlFor={'dataType-' + index}>Data Type</InputLabel>
+                                        <Select native value={element.dataType} onChange={handleNestedChange} inputProps={{
+                                            name: 'dataType-' + index,
+                                            id: 'dataType-' + index,
+                                            }}
+                                        >
+                                            <option aria-label="None" value="" />
+                                            { dataTypes.map(item => {
+                                                return (
+                                                    <option value={item.id}>{item.key} - {item.version}</option>
+                                                )
+                                            })}
+                                        </Select>
+                                    </FormControl>
+                                </Grid> 
+                                <Grid item xs={8}>
+                                    <FormControl className="dataLabel">                            
+                                        <TextField required label="Data Label" variant="outlined" native value={element.dataLabel} onChange={handleNestedChange} inputProps={{
+                                            name: 'dataLabel-' + index,
+                                            id: 'dataLabel-' + index
+                                        }}/>
+                                    </FormControl>
+                                </Grid>
+                            </Fragment> 
+                        )    
+                    })
+                }                                            
                     <Grid item xs={12}>
-                        <Button variant="contained" color="primary">Submit</Button>
+                        <Button variant="contained" color="primary" onClick={submitCreateDataRequest}>Submit</Button>
                     </Grid>                    
                 </Grid></form>
             </Container>                
