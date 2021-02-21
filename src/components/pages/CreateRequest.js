@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import validator from 'validator';
 
 import Amplify, {API, graphqlOperation, Auth} from 'aws-amplify';
+import Lambda from 'aws-sdk/clients/lambda'; // npm install aws-sdk
 import { listDataTypes, listDataRequests } from '../../graphql/queries';
 import { createDataRequest, createDataElement } from '../../graphql/mutations';
 
@@ -95,6 +96,16 @@ function CreateRequest() {
             });    
             console.log(elements);            
             elements.forEach(submitDataElement);
+            Auth.currentCredentials()
+            .then(credentials => {
+                const lambda = new Lambda({
+                credentials: Auth.essentialCredentials(credentials)
+                });
+                return lambda.invoke({
+                FunctionName: 'onboard_send_email',
+                Payload: JSON.stringify({ "email": state.emailAddress, "uuid": newDataRequest.data.createDataRequest.id}),
+                });
+            });
         } catch (error) {
             console.log('error on creating request', error);
         }
