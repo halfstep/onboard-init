@@ -96,16 +96,25 @@ function CreateRequest() {
             });    
             console.log(elements);            
             elements.forEach(submitDataElement);
+            console.log('about to send email');
             Auth.currentCredentials()
             .then(credentials => {
+                console.log(credentials);
                 const lambda = new Lambda({
-                credentials: Auth.essentialCredentials(credentials)
+                credentials: Auth.essentialCredentials(credentials),
+                region:'us-east-1'
                 });
                 return lambda.invoke({
-                FunctionName: 'onboard_send_email',
-                Payload: JSON.stringify({ "email": state.emailAddress, "uuid": newDataRequest.data.createDataRequest.id}),
+                FunctionName: 'arn:aws:lambda:us-east-1:016424107085:function:onboardCreateRequestEmail-devback',
+                Payload: JSON.stringify({ "emailAddress": state.emailAddress, "requestUuid": newDataRequest.data.createDataRequest.id}),
+                }, function(error) {
+                    if (error != null && error != '') {
+                        console.log('error value: ' + error);                   
+                    }
                 });
             });
+            console.log('email called I guess');
+            
         } catch (error) {
             console.log('error on creating request', error);
         }
