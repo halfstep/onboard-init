@@ -109,7 +109,7 @@ function CreateRequest() {
                 Payload: JSON.stringify({ "emailAddress": state.emailAddress, "requestUuid": newDataRequest.data.createDataRequest.id}),
                 }, function(error) {
                     if (error != null && error != '') {
-                        console.log('error value: ' + error);                   
+                        console.log('error value: ' + error);                 
                     }
                 });
             });
